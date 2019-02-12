@@ -75,6 +75,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Consultas\cArticulos.aspx" />
+    <Content Include="Consultas\cCategorias.aspx" />
+    <Content Include="Consultas\cClientes.aspx" />
+    <Content Include="Consultas\cFacturas.aspx" />
+    <Content Include="Consultas\cUsuarios.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -82,6 +87,11 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="default.aspx" />
+    <Content Include="Registros\rArticulos.aspx" />
+    <Content Include="Registros\rCategorias.aspx" />
+    <Content Include="Registros\rClientes.aspx" />
+    <Content Include="Registros\rFacturas.aspx" />
+    <Content Include="Registros\rUsuarios.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -130,6 +140,41 @@
     <Content Include="Site.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Consultas\cArticulos.aspx.cs">
+      <DependentUpon>cArticulos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\cArticulos.aspx.designer.cs">
+      <DependentUpon>cArticulos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\cCategorias.aspx.cs">
+      <DependentUpon>cCategorias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\cCategorias.aspx.designer.cs">
+      <DependentUpon>cCategorias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\cClientes.aspx.cs">
+      <DependentUpon>cClientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\cClientes.aspx.designer.cs">
+      <DependentUpon>cClientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\cFacturas.aspx.cs">
+      <DependentUpon>cFacturas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\cFacturas.aspx.designer.cs">
+      <DependentUpon>cFacturas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\cUsuarios.aspx.cs">
+      <DependentUpon>cUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\cUsuarios.aspx.designer.cs">
+      <DependentUpon>cUsuarios.aspx</DependentUpon>
+    </Compile>
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -138,6 +183,41 @@
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registros\rArticulos.aspx.cs">
+      <DependentUpon>rArticulos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registros\rArticulos.aspx.designer.cs">
+      <DependentUpon>rArticulos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\rCategorias.aspx.cs">
+      <DependentUpon>rCategorias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registros\rCategorias.aspx.designer.cs">
+      <DependentUpon>rCategorias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\rClientes.aspx.cs">
+      <DependentUpon>rClientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registros\rClientes.aspx.designer.cs">
+      <DependentUpon>rClientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\rFacturas.aspx.cs">
+      <DependentUpon>rFacturas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registros\rFacturas.aspx.designer.cs">
+      <DependentUpon>rFacturas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\rUsuarios.aspx.cs">
+      <DependentUpon>rUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registros\rUsuarios.aspx.designer.cs">
+      <DependentUpon>rUsuarios.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -164,8 +244,6 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Consultas\" />
-    <Folder Include="Registros\" />
     <Folder Include="Reportes\" />
   </ItemGroup>
   <PropertyGroup>
