@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public class Articulos
+    class FacturaDetalle
     {
-
     }
 }
