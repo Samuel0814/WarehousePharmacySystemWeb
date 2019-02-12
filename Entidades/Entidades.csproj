@@ -45,8 +45,8 @@
     <Compile Include="Articulos.cs" />
     <Compile Include="Categorias.cs" />
     <Compile Include="Clientes.cs" />
-    <Compile Include="Factura.cs" />
-    <Compile Include="FacturaDetalle.cs" />
+    <Compile Include="Facturas.cs" />
+    <Compile Include="FacturasDetalle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usuarios.cs" />
   </ItemGroup>
