@@ -12,7 +12,6 @@ namespace DAL
     {
         public DbSet<Usuarios> Usuario { get; set; }
         public DbSet<Articulos> Articulos { get; set; }
-        //public DbSet<DeudasClientes> deudas { get; set; }
         public DbSet<Clientes> Cliente { get; set; }
         public DbSet<Categorias> Categoria { get; set; }
         public DbSet<Facturas> Facturas { get; set; }

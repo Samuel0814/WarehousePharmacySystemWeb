@@ -11,18 +11,16 @@ namespace Entidades
     {
         [Key]
         public int IdCliente { get; set; }
-
-        public int IdTipoDeCliente { get; set; }
+        
         public String Nombre { get; set; }
         public String Apellido { get; set; }
         public String Telefono { get; set; }
         public String Direccion { get; set; }
         public String Email { get; set; }
 
-        public Clientes(int idCliente, int idTipoDeCliente, string nombre, string apellido, string telefono, string direccion, string email)
+        public Clientes(int idCliente,  string nombre, string apellido, string telefono, string direccion, string email)
         {
             IdCliente = idCliente;
-            IdTipoDeCliente = idTipoDeCliente;
             Nombre = nombre;
             Apellido = apellido;
             Telefono = telefono;
@@ -33,7 +31,6 @@ namespace Entidades
         public Clientes()
         {
             IdCliente = 0;
-            IdTipoDeCliente = 0;
             Nombre = String.Empty;
             Apellido = String.Empty;
             Telefono = String.Empty;

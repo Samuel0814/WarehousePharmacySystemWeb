@@ -7,40 +7,44 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
+    [Serializable]
     public class FacturasDetalle
     {
-        [Serializable]
-        public class FacturaDetalle
+        
+        [Key]
+        public int ID { get; set; }
+
+        public int IdFacturas { get; set; }
+        public int IdArticulos { get; set; }
+        public int Cantidad { get; set; }
+        public string NombreProducto { get; set; }
+        public Double Precio { get; set; }
+        public Double Importe { get; set; }
+
+
+        public FacturasDetalle(int id, int idFactura, int idArticulo, int cantidad, string nombreProducto, double precio, double importe)
         {
-            [Key]
-            public int IdFacturaDetalle { get; set; }
-
-            public int IdFacturas { get; set; }
-            public int IdArticulos { get; set; }
-            public int Cantidad { get; set; }
-            public Double Precio { get; set; }
-            public Double Importe { get; set; }
-
-            public FacturaDetalle(int idFacturaDetalle, int idFactura, int idArticulos, int cantidad, double precio, double importe)
-            {
-                IdFacturaDetalle = idFacturaDetalle;
-                IdFacturas = idFactura;
-                IdArticulos = idArticulos;
-                Cantidad = cantidad;
-                Precio = precio;
-                Importe = importe;
-            }
-
-            public FacturaDetalle()
-            {
-                IdFacturaDetalle = 0;
-                IdFacturas = 0;
-                IdArticulos = 0;
-                Cantidad = 0;
-                Precio = 0;
-                Importe = 0;
-            }
+            ID = id;
+            IdFacturas = idFactura;
+            IdArticulos = idArticulo;
+            Cantidad = cantidad;
+            NombreProducto = nombreProducto;
+            Precio = precio;
+            Importe = importe;
         }
+
+        public FacturasDetalle()
+        {
+            ID = 0;
+            IdFacturas = 0;
+            IdArticulos = 0;
+            Cantidad = 0;
+            NombreProducto = "";
+            Precio = 0;
+            Importe = 0;
+        }
+
+        
     }
 
 }

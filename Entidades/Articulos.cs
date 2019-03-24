@@ -12,17 +12,17 @@ namespace Entidades
         [Key]
         public int IdArticulos { get; set; }
 
-        public int IdDepartamento { get; set; }
+        public int IdCategorias { get; set; }
         public String Nombre { get; set; }
         public int Existencia { get; set; }
         public DateTime FechaDeVencimiento { get; set; }
         public Double Costo { get; set; }
         public Double Precio { get; set; }
 
-        public Articulos(int idArticulos, int idDepartamento, string nombre, double precio, int existencia, DateTime fechaDeVencimiento, double costo)
+        public Articulos(int idArticulos, int idCategorias, string nombre, double precio, int existencia, DateTime fechaDeVencimiento, double costo)
         {
             IdArticulos = idArticulos;
-            IdDepartamento = idDepartamento;
+            IdCategorias = idCategorias;
             Nombre = nombre;
             Precio = precio;
             Existencia = existencia;
@@ -33,7 +33,7 @@ namespace Entidades
         public Articulos()
         {
             IdArticulos = 0;
-            IdDepartamento = 0;
+            IdCategorias = 0;
             Nombre = String.Empty;
             Precio = 0;
             Existencia = 0;
