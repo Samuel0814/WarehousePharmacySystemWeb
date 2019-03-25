@@ -10,7 +10,7 @@
 namespace WarehousePharmacySystemWeb {
     
     
-    public partial class _default {
+    public partial class Default {
         
         /// <summary>
         /// form1 control.

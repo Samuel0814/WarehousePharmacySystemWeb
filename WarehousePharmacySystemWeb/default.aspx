@@ -1,5 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="WarehousePharmacySystemWeb._default" %>
-
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="WarehousePharmacySystemWeb.Default" %>
 
 <!DOCTYPE html>
 
@@ -9,12 +8,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
     <script src="../../js/jquery-3.3.1.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <link href="../../css/toastr.css" rel="stylesheet" />
-    <script src="../../js/toastr.js"></script>
-    <link rel="icon" type="image/png" href="../../images/icono.ico"/>
-    <link href="css/Style.css" rel="stylesheet" />
+    <script src="Scripts/toastr.js"></script>
+    <script src="Scripts/toastr.min.js"></script>
 </head>
-<%--<body>--%>
+<body>
     <form id="form1" runat="server">
         <div class="container">
             <div class="row">
