@@ -13,18 +13,16 @@ namespace Entidades
         public int CategoriaId { get; set; }
         public string NombreCategoria { get; set; }
 
-
-        public virtual List<Articulos> ArticuloList { get; set; }
+        public Categorias(int idCategorias, string categorias)
+        {
+            CategoriaId = idCategorias;
+            NombreCategoria = categorias;
+        }
 
         public Categorias()
         {
-            this.ArticuloList = new List<Articulos>();
-        }
-
-        public Categorias(int catgoriaID, string nombre)
-        {
-            this.CategoriaId = catgoriaID;
-            this.NombreCategoria = nombre;
+            this.CategoriaId = 0;
+            this.NombreCategoria = string.Empty;
         }
     }
 }

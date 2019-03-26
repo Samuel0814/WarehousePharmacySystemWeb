@@ -11,6 +11,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="Scripts/toastr.js"></script>
     <script src="Scripts/toastr.min.js"></script>
+    <link href="Scripts/fieldset.css" rel="stylesheet" />
+    
+    <link href="Scripts/toastr.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -29,8 +32,8 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuReg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Registros</a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" runat="server" href="Registros/rCategorias.aspx">Departamentos</a>
-                                    <a class="dropdown-item" runat="server" href="Registros/rArticulos.aspx">Productos</a>
+                                    <a class="dropdown-item" runat="server" href="Registros/rCategorias.aspx">Categorias</a>
+                                    <a class="dropdown-item" runat="server" href="Registros/rArticulos.aspx">Articulos</a>
                                     <a class="dropdown-item" runat="server" href="Registros/rFacturas.aspx">Facturacion</a>
                                     <a class="dropdown-item" runat="server" href="Registros/rClientes.aspx">Clientes</a>
                                     <a class="dropdown-item" runat="server" href="Registros/rUsuarios.aspx">Usuarios</a>

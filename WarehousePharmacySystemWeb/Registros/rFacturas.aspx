@@ -66,11 +66,11 @@
                 </div>
                 <div class="form-group col-md-3 col-md-offset-4">
                     <label for="TextBoxTelefonoCliente">Telefono</label>
-                    <asp:TextBox class="form-control" ID="TextBoxTelefonoCliente" runat="server" autocomplete="off" ReadOnly="true"> </asp:TextBox>
+                    <asp:TextBox class="form-control" ID="TextBoxTelefonoCliente" runat="server"  autocomplete="off" ReadOnly="true"> </asp:TextBox>
                 </div>
                 <div class="form-group col-md-3 col-md-offset-4">
                     <label for="TextBoxDireccionCliente">Direccion</label>
-                    <asp:TextBox class="form-control" ID="TextBoxDireccionCliente" runat="server" autocomplete="off" ReadOnly="true"> </asp:TextBox>
+                    <asp:TextBox class="form-control" ID="TextBoxDireccionCliente"  runat="server" autocomplete="off" ReadOnly="true"> </asp:TextBox>
                 </div>
             </div>
 
@@ -85,7 +85,7 @@
                 <div class="form-row">
                     <div class="form-group col-lg-3">
 
-                        <asp:TextBox TextMode="Number" class="form-control" ID="TextboxArticuloID" runat="server" placeholder="ID"></asp:TextBox>
+                        <asp:TextBox TextMode="Number" class="form-control" ID="TextboxArticuloID" text="0" runat="server" placeholder="ID"></asp:TextBox>
                         <asp:RequiredFieldValidator ValidationGroup="id_c" SetFocusOnError="true" ForeColor="Red" ID="RequiredFieldValidator2" ControlToValidate="TextboxArticuloID" runat="server" Display="Dynamic" ErrorMessage="Introduzca un id"></asp:RequiredFieldValidator>
                    
                     

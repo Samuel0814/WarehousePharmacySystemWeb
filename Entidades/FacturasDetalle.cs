@@ -17,18 +17,18 @@ namespace Entidades
         public int IdFacturas { get; set; }
         public int IdArticulos { get; set; }
         public int Cantidad { get; set; }
-        public string NombreProducto { get; set; }
+        public string NombreArticulo { get; set; }
         public Double Precio { get; set; }
         public Double Importe { get; set; }
 
 
-        public FacturasDetalle(int id, int idFactura, int idArticulo, int cantidad, string nombreProducto, double precio, double importe)
+        public FacturasDetalle(int id, int idFactura, int idArticulo, int cantidad, string nombreArticulo, double precio, double importe)
         {
             ID = id;
             IdFacturas = idFactura;
             IdArticulos = idArticulo;
             Cantidad = cantidad;
-            NombreProducto = nombreProducto;
+            NombreArticulo = nombreArticulo;
             Precio = precio;
             Importe = importe;
         }
@@ -39,7 +39,7 @@ namespace Entidades
             IdFacturas = 0;
             IdArticulos = 0;
             Cantidad = 0;
-            NombreProducto = "";
+            NombreArticulo = "";
             Precio = 0;
             Importe = 0;
         }

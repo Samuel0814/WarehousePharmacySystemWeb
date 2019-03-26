@@ -87,7 +87,7 @@ namespace WarehousePharmacySystemWeb.Registros
             FacturasDetalle facdetalle = new FacturasDetalle();
 
             var buscar = art.Buscar(int.Parse(TextboxArticuloID.Text));
-            facdetalle.NombreProducto = buscar.Nombre;
+            facdetalle.NombreArticulo = buscar.Nombre;
             facdetalle.Precio = buscar.Precio;
             facdetalle.Importe = facdetalle.Precio * int.Parse(TextBoxCantidadArticulo.Text);
             facdetalle.IdArticulos = int.Parse(TextboxArticuloID.Text); 
@@ -215,12 +215,12 @@ namespace WarehousePharmacySystemWeb.Registros
 
         protected void ButtonBuscarArticulo_Click(object sender, EventArgs e)
         {
-            RepositorioBase<Articulos> ART = new RepositorioBase<Articulos>();
-            Articulos art = ART.Buscar(int.Parse(TextboxArticuloID.Text));
+            RepositorioBase<Articulos> TRA = new RepositorioBase<Articulos>();
+            Articulos articulos = TRA.Buscar(int.Parse(TextboxArticuloID.Text));
 
-            if (art != null)
+            if (articulos != null)
             {
-                LlenarCamposArticulos(art);
+                LlenarCamposArticulos(articulos);
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "toastr_message", script: "toastr['success']('Articulo Encontrado');", addScriptTags: true);
             }
             else

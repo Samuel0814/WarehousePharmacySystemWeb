@@ -10,6 +10,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="Scripts/toastr.js"></script>
     <script src="Scripts/toastr.min.js"></script>
+    <link href="Scripts/Style.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">

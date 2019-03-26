@@ -1,0 +1,60 @@
+﻿* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.form-control::-webkit-input-placeholder { color: #d32e2e; }  /* WebKit, Blink, Edge */
+.form-control:-moz-placeholder { color: #d32e2e; }  /* Mozilla Firefox 4 to 18 */
+.form-control::-moz-placeholder { color: #d32e2e; }  /* Mozilla Firefox 19+ */
+.form-control:-ms-input-placeholder { color: #d32e2e; }  /* Internet Explorer 10-11 */
+
+body {
+    background-image: url('../images/bg2.png');
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Times New Roman', Times, serif
+}
+
+ul {
+    margin-bottom: 50px;
+}
+
+ul a {
+    font-size: 29px;
+    color: white;
+}
+
+ul a:hover {
+    text-decoration: none;
+    color: #808080;
+}
+
+.label {
+    font-size: 20px;
+    color: white;
+    font-weight: normal;
+}
+
+.form-control {
+    border-radius: 0px;
+    border: 0px;
+    border-bottom: 1px solid #d32e2e;
+    margin-bottom: 30px;
+    font-size: 22px;
+    padding: 20px;
+}
+
+.btn-info {
+    background: #d32e2e;
+    border: 2px solid #d32e2e;
+    border-radius: 0px;
+    width: 360px;
+    margin-top: 20px;
+    font-size: 20px;
+    margin-bottom: 60px
+}
+
+img{
+    width: 450px;
+    height: 477px;
+}

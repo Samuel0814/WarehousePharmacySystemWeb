@@ -24,8 +24,8 @@ namespace WarehousePharmacySystemWeb.Registros
         {
             RepositorioBase<Categorias> rep = new RepositorioBase<Categorias>();
             DropDownListCategorias.DataSource = rep.GetList(x => true);
-            DropDownListCategorias.DataValueField = "IdDepartamento";
-            DropDownListCategorias.DataTextField = "Departamento";
+            DropDownListCategorias.DataValueField = "CategoriaId";
+            DropDownListCategorias.DataTextField = "NombreCategoria";
             DropDownListCategorias.DataBind();
             DropDownListCategorias.Items.Insert(0, new ListItem("", ""));
         }
