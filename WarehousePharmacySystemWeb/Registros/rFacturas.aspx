@@ -84,8 +84,11 @@
             <div class="form-row">
                 <div class="form-row">
                     <div class="form-group col-lg-3">
-                        <asp:TextBox TextMode="Number" class="form-control" ID="TextBoxArticuloID" runat="server" placeholder="ID" OnTextChanged="TextBoxArticuloID_TextChanged"></asp:TextBox>
-                        <asp:RequiredFieldValidator ValidationGroup="id_p" SetFocusOnError="true" ForeColor="Red" ID="RequiredFieldValidator2" ControlToValidate="TextBoxArticuloID" runat="server" Display="Dynamic" ErrorMessage="Introduzca un id"></asp:RequiredFieldValidator>
+
+                        <asp:TextBox TextMode="Number" class="form-control" ID="TextboxArticuloID" runat="server" placeholder="ID"></asp:TextBox>
+                        <asp:RequiredFieldValidator ValidationGroup="id_c" SetFocusOnError="true" ForeColor="Red" ID="RequiredFieldValidator2" ControlToValidate="TextboxArticuloID" runat="server" Display="Dynamic" ErrorMessage="Introduzca un id"></asp:RequiredFieldValidator>
+                   
+                    
                     </div>
                     <div class="btn-group-col-md-1">
                         <asp:Button class="btn btn-primary" ValidationGroup="id_p" ID="ButtonBuscarArticulo" runat="server" Text="Buscar" OnClick="ButtonBuscarArticulo_Click" />

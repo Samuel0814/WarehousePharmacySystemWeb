@@ -83,10 +83,10 @@ namespace WarehousePharmacySystemWeb.Registros
 
         protected void ButtonAgregar_Click(object sender, EventArgs e)
         {
-            RepositorioBase<Articulos> producto = new RepositorioBase<Articulos>();
+            RepositorioBase<Articulos> art = new RepositorioBase<Articulos>();
             FacturasDetalle facdetalle = new FacturasDetalle();
 
-            var buscar = producto.Buscar(int.Parse(TextBoxArticuloID.Text));
+            var buscar = art.Buscar(int.Parse(TextBoxArticuloID.Text));
             facdetalle.NombreProducto = buscar.Nombre;
             facdetalle.Precio = buscar.Precio;
             facdetalle.Importe = facdetalle.Precio * int.Parse(TextBoxCantidadArticulo.Text);
