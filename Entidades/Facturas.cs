@@ -17,10 +17,11 @@ namespace Entidades
         public DateTime Fecha { get; set; }
         public Double Monto { get; set; }
         public String Observacion { get; set; }
+        public int Cantidad { get; set; }
 
         public virtual List<FacturasDetalle> Lista { get; set; }
 
-        public Facturas(int idFactura, int idCliente, int idArticulo, DateTime fecha, double monto, string observacion, List<FacturasDetalle> lista)
+        public Facturas(int idFactura, int idCliente, int idArticulo, DateTime fecha, double monto, string observacion, List<FacturasDetalle> lista, int cantidad)
         {
             IdFactura = idFactura;
             IdCliente = idCliente;
@@ -29,6 +30,7 @@ namespace Entidades
             Monto = monto;
             Observacion = observacion;
             Lista = lista;
+            Cantidad = cantidad;
         }
 
         public Facturas()
@@ -39,6 +41,10 @@ namespace Entidades
             Monto = 0;
             Observacion = String.Empty;
             Lista = new List<FacturasDetalle>();
+            Cantidad = 0;
         }
+
+
+
     }
 }

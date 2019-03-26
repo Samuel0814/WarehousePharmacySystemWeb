@@ -53,6 +53,7 @@ namespace WarehousePharmacySystemWeb.Registros
             TextBoxFechaVencimiento.Text = articulos.FechaDeVencimiento.ToString("yyyy-MM-dd");
             TextBoxCosto.Text = articulos.Costo.ToString();
             TextBoxExistencia.Text = articulos.Existencia.ToString();
+            TextBoxPrecio.Text = articulos.Precio.ToString();
         }
 
         protected void ButtonNuevo_Click(object sender, EventArgs e)
@@ -68,6 +69,7 @@ namespace WarehousePharmacySystemWeb.Registros
             TextBoxFechaVencimiento.Text = String.Empty;
             TextBoxCosto.Text = String.Empty;
             TextBoxExistencia.Text = String.Empty;
+            TextBoxPrecio.Text = String.Empty;
         }
 
         protected void ButtonGuardar_Click(object sender, EventArgs e)

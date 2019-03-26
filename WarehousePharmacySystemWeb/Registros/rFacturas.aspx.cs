@@ -14,6 +14,7 @@ namespace WarehousePharmacySystemWeb.Registros
         List<FacturasDetalle> detalle = new List<FacturasDetalle>();
         public bool active { get; set; }
         double total;
+        private object rep2;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -34,8 +35,10 @@ namespace WarehousePharmacySystemWeb.Registros
 
         protected void ButtonBuscarFactura_Click(object sender, EventArgs e)
         {
-            RepositorioBase<Facturas> facturaRepository = new RepositorioBase<Facturas>();
-            Facturas facturas = facturaRepository.Buscar(int.Parse(TextBoxFacturaID.Text));
+            RepositorioFactura rep = new RepositorioFactura();
+
+            Facturas facturas = rep.Buscar(int.Parse(TextBoxFacturaID.Text));
+            
 
             if (facturas != null)
             {
@@ -43,11 +46,11 @@ namespace WarehousePharmacySystemWeb.Registros
                 active = true;
                 ViewState["Active"] = active;
                 _Visible();
-                ScriptManager.RegisterStartupScript(this, typeof(Page), "toastr_message", script: "toastr['success']('Articulo Encontrado');", addScriptTags: true);
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "toastr_message", script: "toastr['success']('Factura encontrada');", addScriptTags: true);
             }
             else
             {
-                ScriptManager.RegisterStartupScript(this, typeof(Page), "toastr_message", script: "toastr['error']('Articulo no Encontrado');", addScriptTags: true);
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "toastr_message", script: "toastr['error']('Factura no Encontrada');", addScriptTags: true);
             }
         }
 
@@ -56,6 +59,12 @@ namespace WarehousePharmacySystemWeb.Registros
             TextBoxFacturaID.Text = facturas.IdFactura.ToString();
             TextBoxClienteID.Text = facturas.IdCliente.ToString();
             TextboxArticuloID.Text = facturas.IdArticulo.ToString();
+            RepositorioBase<Clientes> client = new RepositorioBase<Clientes>();
+            Clientes Clientes = client.Buscar(int.Parse(TextBoxClienteID.Text));
+            LlenarCamposClientes(Clientes);
+
+            TextBoxCantidadArticulo.Text = "0";
+
             TextBoxFecha.Text = facturas.Fecha.ToString("yyyy-MM-dd");
             TextBoxComentario.Text = facturas.Observacion;
             TextBoxTotal.Text = facturas.Monto.ToString();
@@ -85,14 +94,14 @@ namespace WarehousePharmacySystemWeb.Registros
         {
             RepositorioBase<Articulos> art = new RepositorioBase<Articulos>();
             FacturasDetalle facdetalle = new FacturasDetalle();
+            Facturas facturas = new Facturas();
 
             var buscar = art.Buscar(int.Parse(TextboxArticuloID.Text));
             facdetalle.NombreArticulo = buscar.Nombre;
             facdetalle.Precio = buscar.Precio;
             facdetalle.Importe = facdetalle.Precio * int.Parse(TextBoxCantidadArticulo.Text);
-            facdetalle.IdArticulos = int.Parse(TextboxArticuloID.Text); 
+            facdetalle.IDArt = int.Parse(TextboxArticuloID.Text); 
             facdetalle.Cantidad = int.Parse(TextBoxCantidadArticulo.Text);
-
 
             total += facdetalle.Importe;
 
@@ -116,6 +125,14 @@ namespace WarehousePharmacySystemWeb.Registros
             TextBoxFecha.Text = String.Empty;
             TextBoxComentario.Text = String.Empty;
             TextBoxTotal.Text = String.Empty;
+            TextBoxNombreCliente.Text = String.Empty;
+            TextBoxApellidoCliente.Text = String.Empty;
+            TextBoxTelefonoCliente.Text = String.Empty;
+            TextBoxDireccionCliente.Text = String.Empty;
+            TextBoxNombreArticulo.Text = String.Empty;
+            TextBoxPrecioArticulo.Text = String.Empty;
+            TextBoxCantidadArticulo.Text = String.Empty;
+            TextBoxImporteArticulo.Text = String.Empty;
             FacturaGridView.DataSource = null;
             FacturaGridView.DataBind();
             active = false;
@@ -127,7 +144,7 @@ namespace WarehousePharmacySystemWeb.Registros
         {
             if (Page.IsValid)
             {
-                RepositorioBase<Facturas> rb = new RepositorioBase<Facturas>();
+                RepositorioFactura rb = new RepositorioFactura(); ;
 
                 int id = 0;
 
@@ -160,7 +177,8 @@ namespace WarehousePharmacySystemWeb.Registros
                 Convert.ToDateTime(TextBoxFecha.Text),
                 double.Parse(TextBoxTotal.Text),
                 TextBoxComentario.Text,
-                detalle
+                detalle,
+                int.Parse(TextBoxCantidadArticulo.Text)
                 );
         }
 
@@ -175,7 +193,7 @@ namespace WarehousePharmacySystemWeb.Registros
 
         protected void ButtonEliminar_Click(object sender, EventArgs e)
         {
-            RepositorioBase <Facturas>rep = new RepositorioBase<Facturas>();
+            RepositorioFactura rep = new RepositorioFactura();
             Facturas facturas = rep.Buscar(int.Parse(TextBoxFacturaID.Text));
 
             if (facturas != null)
