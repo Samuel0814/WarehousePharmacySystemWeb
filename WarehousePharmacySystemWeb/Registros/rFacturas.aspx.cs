@@ -55,7 +55,7 @@ namespace WarehousePharmacySystemWeb.Registros
         {
             TextBoxFacturaID.Text = facturas.IdFactura.ToString();
             TextBoxClienteID.Text = facturas.IdCliente.ToString();
-            TextBoxArticuloID.Text = facturas.IdArticulo.ToString();
+            TextboxArticuloID.Text = facturas.IdArticulo.ToString();
             TextBoxFecha.Text = facturas.Fecha.ToString("yyyy-MM-dd");
             TextBoxComentario.Text = facturas.Observacion;
             TextBoxTotal.Text = facturas.Monto.ToString();
@@ -86,11 +86,11 @@ namespace WarehousePharmacySystemWeb.Registros
             RepositorioBase<Articulos> art = new RepositorioBase<Articulos>();
             FacturasDetalle facdetalle = new FacturasDetalle();
 
-            var buscar = art.Buscar(int.Parse(TextBoxArticuloID.Text));
+            var buscar = art.Buscar(int.Parse(TextboxArticuloID.Text));
             facdetalle.NombreProducto = buscar.Nombre;
             facdetalle.Precio = buscar.Precio;
             facdetalle.Importe = facdetalle.Precio * int.Parse(TextBoxCantidadArticulo.Text);
-            facdetalle.IdArticulos = int.Parse(TextBoxArticuloID.Text);
+            facdetalle.IdArticulos = int.Parse(TextboxArticuloID.Text); 
             facdetalle.Cantidad = int.Parse(TextBoxCantidadArticulo.Text);
 
 
@@ -111,7 +111,7 @@ namespace WarehousePharmacySystemWeb.Registros
         private void ClearAll()
         {
             TextBoxClienteID.Text = String.Empty;
-            TextBoxArticuloID.Text = String.Empty;
+            TextboxArticuloID.Text = String.Empty;
             TextBoxFacturaID.Text = String.Empty;
             TextBoxFecha.Text = String.Empty;
             TextBoxComentario.Text = String.Empty;
@@ -156,7 +156,7 @@ namespace WarehousePharmacySystemWeb.Registros
             return new Facturas(
                 ComprobarID(id),
                 int.Parse(TextBoxClienteID.Text),
-                int.Parse(TextBoxArticuloID.Text),
+                int.Parse(TextboxArticuloID.Text),
                 Convert.ToDateTime(TextBoxFecha.Text),
                 double.Parse(TextBoxTotal.Text),
                 TextBoxComentario.Text,
@@ -216,7 +216,7 @@ namespace WarehousePharmacySystemWeb.Registros
         protected void ButtonBuscarArticulo_Click(object sender, EventArgs e)
         {
             RepositorioBase<Articulos> ART = new RepositorioBase<Articulos>();
-            Articulos art = ART.Buscar(int.Parse(TextBoxArticuloID.Text));
+            Articulos art = ART.Buscar(int.Parse(TextboxArticuloID.Text));
 
             if (art != null)
             {
@@ -230,7 +230,7 @@ namespace WarehousePharmacySystemWeb.Registros
         }
         private void LlenarCamposArticulos(Articulos articulos)
         {
-            TextBoxArticuloID.Text = articulos.IdArticulos.ToString();
+            TextboxArticuloID.Text = articulos.IdArticulos.ToString();
             TextBoxNombreArticulo.Text = articulos.Nombre.ToString();
             TextBoxPrecioArticulo.Text = articulos.Precio.ToString();
             TextBoxImporteArticulo.Text = articulos.Costo.ToString();

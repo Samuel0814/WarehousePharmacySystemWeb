@@ -39,7 +39,7 @@ namespace WarehousePharmacySystemWeb.Registros
             TextBoxUsername.Text = String.Empty;
             TextBoxPassword.Text = String.Empty;
             TextBoxConfirmacionPassword.Text = String.Empty;
-            TextBoxComentario.Text = String.Empty;
+            TextBoxEmail.Text = String.Empty;
             TextBoxFecha.Text = DateTime.Now.ToString("yyyy-MM-dd");
         }
 
@@ -49,7 +49,7 @@ namespace WarehousePharmacySystemWeb.Registros
             TextBoxPassword.Text = usuario.Password;
             TextBoxFecha.Text = usuario.Fecha.ToString("yyyy-MM-dd");
             TextBoxNombre.Text = usuario.Nombre;
-            TextBoxComentario.Text = usuario.Comentario;
+            TextBoxEmail.Text = usuario.Comentario;
         }
 
         protected void ButtonNuevo_Click(object sender, EventArgs e)
@@ -96,7 +96,7 @@ namespace WarehousePharmacySystemWeb.Registros
                 TextBoxPassword.Text,
                 Convert.ToDateTime(TextBoxFecha.Text),
                 TextBoxNombre.Text,
-                TextBoxComentario.Text
+                TextBoxEmail.Text
                 );
         }
 

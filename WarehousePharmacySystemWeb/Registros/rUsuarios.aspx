@@ -62,9 +62,9 @@
 
         <div class="row">
             <div class="form-group col-md-7 col-md-offset-3">
-                <label for="TextBoxComentario">Comentario</label>
-                <asp:TextBox TextMode="MultiLine" class="form-control" ID="TextBoxComentario" runat="server" placeholder="Email del Cliente" autocomplete="off"> </asp:TextBox>
-                <asp:RequiredFieldValidator ValidationGroup="save" ForeColor="Red" ID="RequiredFieldValidator5" ControlToValidate="TextBoxComentario" runat="server" Display="Dynamic" ErrorMessage="Introduzca un comentario"></asp:RequiredFieldValidator>
+                <label for="TextBoxEmail">Email</label>
+                <asp:TextBox TextMode="MultiLine" class="form-control" ID="TextBoxEmail" runat="server" placeholder="Email del Cliente" autocomplete="off"> </asp:TextBox>
+                <asp:RequiredFieldValidator ValidationGroup="save" ForeColor="Red" ID="RequiredFieldValidator5" ControlToValidate="TextBoxEmail" runat="server" Display="Dynamic" ErrorMessage="Introduzca un email"></asp:RequiredFieldValidator>
             </div>
         </div>
 
