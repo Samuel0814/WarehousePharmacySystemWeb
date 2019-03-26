@@ -29,22 +29,22 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuReg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Registros</a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" runat="server" href="../Registros/rCategorias.aspx">Departamentos</a>
-                                    <a class="dropdown-item" runat="server" href="../Registros/rArticulos.aspx">Productos</a>
-                                    <a class="dropdown-item" runat="server" href="../Registros/rFacturas.aspx">Facturacion</a>
-                                    <a class="dropdown-item" runat="server" href="../Registros/rClientes.aspx">Clientes</a>
-                                    <a class="dropdown-item" runat="server" href="../Registros/rUsuarios.aspx">Usuarios</a>
+                                    <a class="dropdown-item" runat="server" href="Registros/rCategorias.aspx">Departamentos</a>
+                                    <a class="dropdown-item" runat="server" href="Registros/rArticulos.aspx">Productos</a>
+                                    <a class="dropdown-item" runat="server" href="Registros/rFacturas.aspx">Facturacion</a>
+                                    <a class="dropdown-item" runat="server" href="Registros/rClientes.aspx">Clientes</a>
+                                    <a class="dropdown-item" runat="server" href="Registros/rUsuarios.aspx">Usuarios</a>
                                 </div>
                             </li>
 
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuCons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Consultas</a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" runat="server" href="../Consultas/cUsuarios.aspx">Usuarios</a>
-                                    <a class="dropdown-item" runat="server" href="../Consultas/cCategorias.aspx">Categorias</a>
-                                    <a class="dropdown-item" runat="server" href="../Consultas/cClientes.aspx">Clientes</a>
-                                    <a class="dropdown-item" runat="server" href="../Consultas/cFacturas.aspx">Facturas</a>
-                                    <a class="dropdown-item" runat="server" href="../Consultas/cArticulos.aspx">Articulos</a>
+                                    <a class="dropdown-item" runat="server" href="Consultas/cUsuarios.aspx">Usuarios</a>
+                                    <a class="dropdown-item" runat="server" href="Consultas/cCategorias.aspx">Categorias</a>
+                                    <a class="dropdown-item" runat="server" href="Consultas/cClientes.aspx">Clientes</a>
+                                    <a class="dropdown-item" runat="server" href="Consultas/cFacturas.aspx">Facturas</a>
+                                    <a class="dropdown-item" runat="server" href="Consultas/cArticulos.aspx">Articulos</a>
                                 </div>
                             </li>
 
