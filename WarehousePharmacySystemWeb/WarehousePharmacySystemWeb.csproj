@@ -129,6 +129,17 @@
     <Content Include="DataSetListadoCategorias.xsc">
       <DependentUpon>DataSetListadoCategorias.xsd</DependentUpon>
     </Content>
+    <Content Include="DataSetListadoArticulos.xsc">
+      <DependentUpon>DataSetListadoArticulos.xsd</DependentUpon>
+    </Content>
+    <None Include="DataSetListadoArticulos.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetListadoArticulos.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="DataSetListadoArticulos.xss">
+      <DependentUpon>DataSetListadoArticulos.xsd</DependentUpon>
+    </Content>
     <None Include="DataSetListadoCategorias.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DataSetListadoCategorias.Designer.cs</LastGenOutput>
@@ -136,6 +147,28 @@
     </None>
     <Content Include="DataSetListadoCategorias.xss">
       <DependentUpon>DataSetListadoCategorias.xsd</DependentUpon>
+    </Content>
+    <Content Include="DataSetListadoFacturas.xsc">
+      <DependentUpon>DataSetListadoFacturas.xsd</DependentUpon>
+    </Content>
+    <Content Include="DataSetListadoClientes.xsc">
+      <DependentUpon>DataSetListadoClientes.xsd</DependentUpon>
+    </Content>
+    <None Include="DataSetListadoClientes.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetListadoClientes.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="DataSetListadoClientes.xss">
+      <DependentUpon>DataSetListadoClientes.xsd</DependentUpon>
+    </Content>
+    <None Include="DataSetListadoFacturas.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetListadoFacturas.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="DataSetListadoFacturas.xss">
+      <DependentUpon>DataSetListadoFacturas.xsd</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\fieldset.css" />
@@ -220,10 +253,25 @@
     <Compile Include="Consultas\cUsuarios.aspx.designer.cs">
       <DependentUpon>cUsuarios.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DataSetListadoArticulos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetListadoArticulos.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSetListadoCategorias.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetListadoCategorias.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetListadoClientes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetListadoClientes.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetListadoFacturas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetListadoFacturas.xsd</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -352,7 +400,10 @@
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Reportes\ListadoArticulos.rdlc" />
     <EmbeddedResource Include="Reportes\ListadoCategorias.rdlc" />
+    <EmbeddedResource Include="Reportes\ListadoClientes.rdlc" />
+    <EmbeddedResource Include="Reportes\ListadoFacturas.rdlc" />
     <EmbeddedResource Include="Reportes\ListadoUsuarios.rdlc" />
   </ItemGroup>
   <PropertyGroup>

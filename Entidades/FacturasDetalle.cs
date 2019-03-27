@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,8 +11,7 @@ namespace Entidades
     [Serializable]
     public class FacturasDetalle
     {
-        
-        [Key]
+
         public int ID { get; set; }
 
         public int IdFacturas { get; set; }
@@ -39,12 +39,9 @@ namespace Entidades
             IdFacturas = 0;
             IDArt = 0;
             Cantidad = 0;
-            NombreArticulo = "";
+            NombreArticulo = string.Empty;
             Precio = 0;
             Importe = 0;
         }
-
-        
     }
-
 }

@@ -14,7 +14,7 @@ namespace WarehousePharmacySystemWeb.Registros
         List<FacturasDetalle> detalle = new List<FacturasDetalle>();
         public bool active { get; set; }
         double total;
-        private object rep2;
+      
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -45,7 +45,7 @@ namespace WarehousePharmacySystemWeb.Registros
                 LlenarCamposFactura(facturas);
                 active = true;
                 ViewState["Active"] = active;
-                _Visible();
+                //_Visible();
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "toastr_message", script: "toastr['success']('Factura encontrada');", addScriptTags: true);
             }
             else
@@ -58,12 +58,12 @@ namespace WarehousePharmacySystemWeb.Registros
         {
             TextBoxFacturaID.Text = facturas.IdFactura.ToString();
             TextBoxClienteID.Text = facturas.IdCliente.ToString();
-            TextboxArticuloID.Text = facturas.IdArticulo.ToString();
+           // TextboxArticuloID.Text = facturas.IdArticulo.ToString();
             RepositorioBase<Clientes> client = new RepositorioBase<Clientes>();
             Clientes Clientes = client.Buscar(int.Parse(TextBoxClienteID.Text));
             LlenarCamposClientes(Clientes);
 
-            TextBoxCantidadArticulo.Text = "0";
+            TextBoxCantidadArticulo.Text = String.Empty;
 
             TextBoxFecha.Text = facturas.Fecha.ToString("yyyy-MM-dd");
             TextBoxComentario.Text = facturas.Observacion;
@@ -76,7 +76,13 @@ namespace WarehousePharmacySystemWeb.Registros
         protected void ButtonBuscarCliente_Click(object sender, EventArgs e)
         {
             RepositorioBase<Clientes> client = new RepositorioBase<Clientes>();
-            Clientes Client = client.Buscar(int.Parse(TextBoxClienteID.Text));
+            Clientes Client = null;
+            if (!TextBoxClienteID.Text.Equals(string.Empty))
+            {
+                Client = client.Buscar(int.Parse(TextBoxClienteID.Text));
+               
+            }
+            
 
             if (Client != null)
             {
@@ -137,7 +143,7 @@ namespace WarehousePharmacySystemWeb.Registros
             FacturaGridView.DataBind();
             active = false;
             ViewState["Active"] = active;
-            Invisible();
+            //Invisible();
         }
 
         protected void ButtonGuardar_Click(object sender, EventArgs e)
@@ -160,7 +166,7 @@ namespace WarehousePharmacySystemWeb.Registros
                 }
                 else
                 {
-                    if (rb.Modificar(LlenaClase()))
+                    if(rb.Modificar(LlenaClase()))
                         ScriptManager.RegisterStartupScript(this, typeof(Page), "toastr_message", script: "toastr['success']('Factura Modificada');", addScriptTags: true);
                     ClearAll();
                 }
@@ -173,7 +179,6 @@ namespace WarehousePharmacySystemWeb.Registros
             return new Facturas(
                 ComprobarID(id),
                 int.Parse(TextBoxClienteID.Text),
-                int.Parse(TextboxArticuloID.Text),
                 Convert.ToDateTime(TextBoxFecha.Text),
                 double.Parse(TextBoxTotal.Text),
                 TextBoxComentario.Text,
@@ -202,28 +207,28 @@ namespace WarehousePharmacySystemWeb.Registros
                 {
                     ScriptManager.RegisterStartupScript(Page, typeof(Page), "Popup", "alert('Factura eliminada')", true);
                     ClearAll();
-                    Invisible();
+                    //Invisible();
                 }
                 else
                     ScriptManager.RegisterStartupScript(Page, typeof(Page), "Popup", "alert('No se pudo eliminar la factura')", true);
             }
         }
 
-        private void _Visible()
-        {
-            TextBoxTotal.Visible = true;
-            ButtonNuevo.Visible = true;
-            ButtonGuardar.Visible = true;
-            ButtonEliminar.Visible = true;
-        }
+        //private void _Visible()
+        //{
+        //    TextBoxTotal.Visible = true;
+        //    ButtonNuevo.Visible = true;
+        //    ButtonGuardar.Visible = true;
+        //    ButtonEliminar.Visible = true;
+        //}
 
-        private void Invisible()
-        {
-            TextBoxTotal.Visible = false;
-            ButtonNuevo.Visible = false;
-            ButtonGuardar.Visible = false;
-            ButtonEliminar.Visible = false;
-        }
+        //private void Invisible()
+        //{
+        //    TextBoxTotal.Visible = false;
+        //    ButtonNuevo.Visible = false;
+        //    ButtonGuardar.Visible = false;
+        //    ButtonEliminar.Visible = false;
+        //}
 
 
         protected void TextBoxProductoID_TextChanged(object sender, EventArgs e)
@@ -234,9 +239,14 @@ namespace WarehousePharmacySystemWeb.Registros
         protected void ButtonBuscarArticulo_Click(object sender, EventArgs e)
         {
             RepositorioBase<Articulos> TRA = new RepositorioBase<Articulos>();
-            Articulos articulos = TRA.Buscar(int.Parse(TextboxArticuloID.Text));
+            Articulos articulos = null;
 
-            if (articulos != null)
+
+            if (!TextboxArticuloID.Text.Equals(String.Empty)) { 
+             articulos = TRA.Buscar(int.Parse(TextboxArticuloID.Text));
+               }
+
+            if (articulos != null   )
             {
                 LlenarCamposArticulos(articulos);
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "toastr_message", script: "toastr['success']('Articulo Encontrado');", addScriptTags: true);

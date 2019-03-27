@@ -13,7 +13,7 @@ namespace Entidades
         [Key]
         public int IdFactura { get; set; }
         public int IdCliente { get; set; }
-        public int IdArticulo { get; set; }
+        //public int IdArticulo { get; set; }
         public DateTime Fecha { get; set; }
         public Double Monto { get; set; }
         public String Observacion { get; set; }
@@ -21,11 +21,11 @@ namespace Entidades
 
         public virtual List<FacturasDetalle> Lista { get; set; }
 
-        public Facturas(int idFactura, int idCliente, int idArticulo, DateTime fecha, double monto, string observacion, List<FacturasDetalle> lista, int cantidad)
+        public Facturas(int idFactura, int idCliente, DateTime fecha, double monto, string observacion, List<FacturasDetalle> lista, int cantidad)
         {
             IdFactura = idFactura;
             IdCliente = idCliente;
-            IdArticulo = idArticulo;
+           // IdArticulo = idArticulo;
             Fecha = fecha;
             Monto = monto;
             Observacion = observacion;
