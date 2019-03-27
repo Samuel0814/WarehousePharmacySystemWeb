@@ -38,7 +38,7 @@
 
         <div class="row">
             <div class="form-group col-md-7 col-md-offset-3">
-                <label for="TextBoxFechaVencimiento">Fecha de Vencimiento</label>
+                <label for="TextBoxFechaVencimiento">Fecha </label>
                 <asp:TextBox TextMode="Date" class="form-control" ID="TextBoxFechaVencimiento" runat="server" placeholder="Fecha de Vencimiento del articulo"></asp:TextBox>
                 <asp:RequiredFieldValidator ValidationGroup="save" ForeColor="Red" ID="RequiredFieldValidator2" ControlToValidate="TextBoxFechaVencimiento" runat="server" Display="Dynamic" ErrorMessage="Introduzca una Fecha de Vencimiento al articulo"></asp:RequiredFieldValidator>
             </div>

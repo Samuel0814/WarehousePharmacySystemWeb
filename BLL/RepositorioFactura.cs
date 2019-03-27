@@ -69,7 +69,7 @@ namespace BLL
             foreach (var item in entity.Lista)
             {
                 var articulo = _contexto.Articulos.Find(item.IDArt);
-                articulo.Existencia += item.Cantidad;
+                articulo.Existencia -= item.Cantidad;
                 _contexto.Entry(articulo).State = EntityState.Modified;
 
             }

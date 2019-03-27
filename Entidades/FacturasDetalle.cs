@@ -18,11 +18,11 @@ namespace Entidades
         public int IDArt { get; set; }
         public int Cantidad { get; set; }
         public string NombreArticulo { get; set; }
-        public Double Precio { get; set; }
-        public Double Importe { get; set; }
+        public int Precio { get; set; }
+        public int Importe { get; set; }
 
 
-        public FacturasDetalle(int id, int idFactura, int idArt, int cantidad, string nombreArticulo, double precio, double importe)
+        public FacturasDetalle(int id, int idFactura, int idArt, int cantidad, string nombreArticulo, int precio, int importe)
         {
             ID = id;
             FacturaID = idFactura;

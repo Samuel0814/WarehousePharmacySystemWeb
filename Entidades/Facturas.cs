@@ -33,18 +33,21 @@ namespace Entidades
             //Cantidad = cantidad;
         }
 
+        //public Facturas()
+        //{
+        //    IdFactura = 0;
+        //    IdCliente = 0;
+        //    Fecha = DateTime.Now;
+        //    Monto = 0;
+        //    Observacion = String.Empty;
+        //    Lista = new List<FacturasDetalle>();
+        //    //Cantidad = 0;
+        //}
+
         public Facturas()
         {
-            IdFactura = 0;
-            IdCliente = 0;
-            Fecha = DateTime.Now;
-            Monto = 0;
-            Observacion = String.Empty;
-            Lista = new List<FacturasDetalle>();
-            //Cantidad = 0;
+            this.Lista = new List<FacturasDetalle>();
         }
-
-
 
     }
 }

@@ -105,7 +105,7 @@ namespace WarehousePharmacySystemWeb.Registros
 
             var buscar = art.Buscar(int.Parse(TextboxArticuloID.Text));
             facdetalle.NombreArticulo = buscar.Nombre;
-            facdetalle.Precio = buscar.Precio;
+            facdetalle.Precio = Convert.ToInt32(TextBoxPrecioArticulo.Text);
             facdetalle.Importe = facdetalle.Precio * int.Parse(TextBoxCantidadArticulo.Text);
             facdetalle.IDArt = int.Parse(TextboxArticuloID.Text); 
             facdetalle.Cantidad = int.Parse(TextBoxCantidadArticulo.Text);
