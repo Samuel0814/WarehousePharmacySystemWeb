@@ -170,6 +170,8 @@
     <Content Include="DataSetListadoFacturas.xss">
       <DependentUpon>DataSetListadoFacturas.xsd</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\WarehousePharmacySystem - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\WarehousePharmacySystem - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\fieldset.css" />
     <Content Include="Scripts\jquery-3.3.1.js" />
