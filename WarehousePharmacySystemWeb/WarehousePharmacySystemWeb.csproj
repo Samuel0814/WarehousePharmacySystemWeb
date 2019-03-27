@@ -406,11 +406,11 @@
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Reportes\ListadoArticulos.rdlc" />
-    <EmbeddedResource Include="Reportes\ListadoCategorias.rdlc" />
-    <EmbeddedResource Include="Reportes\ListadoClientes.rdlc" />
-    <EmbeddedResource Include="Reportes\ListadoFacturas.rdlc" />
-    <EmbeddedResource Include="Reportes\ListadoUsuarios.rdlc" />
+    <Content Include="Reportes\ListadoArticulos.rdlc" />
+    <Content Include="Reportes\ListadoCategorias.rdlc" />
+    <Content Include="Reportes\ListadoClientes.rdlc" />
+    <Content Include="Reportes\ListadoFacturas.rdlc" />
+    <Content Include="Reportes\ListadoUsuarios.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
