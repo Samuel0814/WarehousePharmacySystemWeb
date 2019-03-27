@@ -19,20 +19,25 @@ namespace WarehousePharmacySystemWeb.Consultas
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            TextBoxFechaInicial.Text = DateTime.Now.Date.ToString("yyyy-MM-dd");
-            TextBoxFechaFinal.Text = DateTime.Now.Date.ToString("yyyy-MM-dd");
+            if(!IsPostBack)
+            {
+                TextBoxFechaInicial.Text = DateTime.Now.Date.ToString("yyyy-MM-dd");
+                TextBoxFechaFinal.Text = DateTime.Now.Date.ToString("yyyy-MM-dd");
 
-            FacturasReportViewer.ProcessingMode = Microsoft.Reporting.WebForms.ProcessingMode.Local;
-            FacturasReportViewer.Reset();
-            FacturasReportViewer.LocalReport.DataSources.Clear();
-            FacturasReportViewer.LocalReport.ReportPath = Server.MapPath(@"~\Reportes\ListadoFacturas.rdlc");
+                FacturasReportViewer.ProcessingMode = Microsoft.Reporting.WebForms.ProcessingMode.Local;
+                FacturasReportViewer.Reset();
+                
+                FacturasReportViewer.LocalReport.ReportPath = Server.MapPath(@"~\Reportes\ListadoFacturas.rdlc");
+                FacturasReportViewer.LocalReport.DataSources.Clear();
+            }
+            
         }
 
         protected void ButtonImprimir_Click(object sender, EventArgs e)
         {
             Filtrar();
             FacturasReportViewer.LocalReport.DataSources.Clear();
-            FacturasReportViewer.LocalReport.DataSources.Add(new ReportDataSource("DataSetListadoFacturas", repositorio.GetList(filter)));
+            FacturasReportViewer.LocalReport.DataSources.Add(new ReportDataSource("Facturas", repositorio.GetList(filter)));
             FacturasReportViewer.LocalReport.Refresh();
             ScriptManager.RegisterStartupScript(this, this.GetType(), "ReporteModal", "$('#ReporteModal').modal();", true);
         }

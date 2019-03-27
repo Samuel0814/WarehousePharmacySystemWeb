@@ -82,13 +82,13 @@ namespace BLL
             foreach (var item in entity.Lista)
                 _contexto.Entry(item).State = (item.ID != 0) ? EntityState.Added : EntityState.Modified;
 
-            foreach (var item in entity.Lista)
-            {
-                var articulo = _contexto.Articulos.Find(item.IDArt);
-                articulo.Existencia -= item.Cantidad;
-                _contexto.Entry(item).State = EntityState.Modified;
+            //foreach (var item in entity.Lista)
+            //{
+            //    var articulo = _contexto.Articulos.Find(item.IDArt);
+            //    articulo.Existencia -= item.Cantidad;
+            //    _contexto.Entry(item).State = EntityState.Modified;
 
-            }
+            //}
             
 
             return base.Modificar(entity);

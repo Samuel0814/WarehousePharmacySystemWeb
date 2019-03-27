@@ -11,10 +11,10 @@ namespace Entidades
     [Serializable]
     public class FacturasDetalle
     {
-
+        [Key]
         public int ID { get; set; }
 
-        public int IdFacturas { get; set; }
+        public int FacturaID { get; set; }
         public int IDArt { get; set; }
         public int Cantidad { get; set; }
         public string NombreArticulo { get; set; }
@@ -25,7 +25,7 @@ namespace Entidades
         public FacturasDetalle(int id, int idFactura, int idArt, int cantidad, string nombreArticulo, double precio, double importe)
         {
             ID = id;
-            IdFacturas = idFactura;
+            FacturaID = idFactura;
             IDArt = idArt;
             Cantidad = cantidad;
             NombreArticulo = nombreArticulo;
@@ -36,7 +36,7 @@ namespace Entidades
         public FacturasDetalle()
         {
             ID = 0;
-            IdFacturas = 0;
+            FacturaID = 0;
             IDArt = 0;
             Cantidad = 0;
             NombreArticulo = string.Empty;

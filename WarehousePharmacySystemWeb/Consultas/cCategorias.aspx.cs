@@ -20,14 +20,19 @@ namespace WarehousePharmacySystemWeb.Consultas
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            CategoriasReportViewer.ProcessingMode = Microsoft.Reporting.WebForms.ProcessingMode.Local;
-            CategoriasReportViewer.Reset();
-            CategoriasReportViewer.LocalReport.ReportPath = Server.MapPath(@"~\Reportes\ListadoCategorias.rdlc");
+            if (!IsPostBack)
+            {
+                CategoriasReportViewer.ProcessingMode = Microsoft.Reporting.WebForms.ProcessingMode.Local;
+                CategoriasReportViewer.Reset();
+                CategoriasReportViewer.LocalReport.ReportPath = Server.MapPath(@"~\Reportes\ListadoCategorias.rdlc");
 
-            CategoriasReportViewer.LocalReport.DataSources.Clear();
+                CategoriasReportViewer.LocalReport.DataSources.Clear();
 
-            CategoriasReportViewer.LocalReport.DataSources.Add(new ReportDataSource("Categorias", repositorio.GetList(x => true)));
-            CategoriasReportViewer.LocalReport.Refresh();
+                CategoriasReportViewer.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", repositorio.GetList(x => true)));
+                CategoriasReportViewer.LocalReport.Refresh();
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "ReporteModal", "$('#ReporteModal').modal();", true);
+            }
+            
         }
 
         protected void BuscarLinkButton_Click(object sender, EventArgs e)

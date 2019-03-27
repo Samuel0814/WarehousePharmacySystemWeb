@@ -183,8 +183,7 @@ namespace WarehousePharmacySystemWeb.Registros
                 Convert.ToDateTime(TextBoxFecha.Text),
                 double.Parse(TextBoxTotal.Text),
                 TextBoxComentario.Text,
-                detalle,
-                int.Parse(TextBoxCantidadArticulo.Text)
+                detalle
                 );
         }
 

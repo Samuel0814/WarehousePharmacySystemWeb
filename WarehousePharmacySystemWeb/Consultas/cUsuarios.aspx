@@ -79,7 +79,7 @@
                             </div>
                             <div class="modal-body">
                                 <div id="div1">
-                                    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                                    <asp:ScriptManager ID="ScriptManager2" runat="server"></asp:ScriptManager>
                                     <rsweb:ReportViewer ID="UsuariosReportViewer" width="100%" runat="server">
                                         <ServerReport ReportPath=""  ReportServerUrl=""/>
                                     </rsweb:ReportViewer>

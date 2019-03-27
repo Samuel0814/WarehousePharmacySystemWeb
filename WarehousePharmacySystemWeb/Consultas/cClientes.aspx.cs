@@ -13,28 +13,27 @@ namespace WarehousePharmacySystemWeb.Consultas
 {
     public partial class cClientes : System.Web.UI.Page
     {
-        Expression<Func<Clientes, bool>> filter = x => true;
+        BLL.RepositorioBase<Clientes> repositorio = new RepositorioBase<Clientes>();
 
-        RepositorioBase<Clientes> repositorio = new RepositorioBase<Clientes>();
+        Expression<Func<Clientes, bool>> filtro = x => true;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-          
-            ClientesReportViewer.ProcessingMode = Microsoft.Reporting.WebForms.ProcessingMode.Local;
-            ClientesReportViewer.Reset();
-            ClientesReportViewer.LocalReport.DataSources.Clear();
-            ClientesReportViewer.LocalReport.ReportPath = Server.MapPath(@"~\Reportes\ListadoClientes.rdlc");
+            if (!IsPostBack)
+            {
+                ClientesReportViewer.ProcessingMode = Microsoft.Reporting.WebForms.ProcessingMode.Local;
+                ClientesReportViewer.Reset();
+                ClientesReportViewer.LocalReport.ReportPath = Server.MapPath(@"~\Reportes\ListadoClientes.rdlc");
+
+                ClientesReportViewer.LocalReport.DataSources.Clear();
+            }
         }
 
-        protected void ClientesReportViewer_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            
-        }
 
         protected void BuscarLinkButton_Click(object sender, EventArgs e)
         {
             Filtrar();
-            ClienteGridView.DataSource = repositorio.GetList(filter);
+            ClienteGridView.DataSource = repositorio.GetList(filtro);
             ClienteGridView.DataBind();
         }
 
@@ -44,42 +43,48 @@ namespace WarehousePharmacySystemWeb.Consultas
             switch (DropDownListFiltro.SelectedIndex)
             {
                 case 0://Todo
-                    filter = x => true;
+                    filtro = x => true;
                     break;
 
                 case 1://Cliente ID
                     id = int.Parse(TextBoxBuscar.Text);
-                    filter = (x => x.IdCliente == id);
+                    filtro = (x => x.IdCliente == id);
                     break;
 
                 case 2://Nombre cliente
-                    filter = (x => x.Nombre.Contains(TextBoxBuscar.Text));
+                    filtro = (x => x.Nombre.Contains(TextBoxBuscar.Text));
                     break;
 
                 case 3://ApellidoCliente
-                    filter = (x => x.Apellido.Contains(TextBoxBuscar.Text));
+                    filtro = (x => x.Apellido.Contains(TextBoxBuscar.Text));
                     break;
 
                 case 4://Email
-                    filter = (x => x.Email.Contains(TextBoxBuscar.Text));
+                    filtro = (x => x.Email.Contains(TextBoxBuscar.Text));
                     break;
             }
         }
+
+
+        protected void ClienteGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            ClienteGridView.DataSource = repositorio.GetList(filtro);
+            ClienteGridView.PageIndex = e.NewPageIndex;
+            ClienteGridView.DataBind();
+        }
+
+
 
         protected void ButtonImprimir_Click(object sender, EventArgs e)
         {
             Filtrar();
             ClientesReportViewer.LocalReport.DataSources.Clear();
-            ClientesReportViewer.LocalReport.DataSources.Add(new ReportDataSource("DataSetListadoClientes", repositorio.GetList(filter)));
+            //ClientesReportViewer.LocalReport.DataSources.Add(new ReportDataSource("Clientes", repositorio.GetList(filter)));
+            ClientesReportViewer.LocalReport.DataSources.Add(new ReportDataSource("Clientes", repositorio.GetList(filtro)));
             ClientesReportViewer.LocalReport.Refresh();
             ScriptManager.RegisterStartupScript(this, this.GetType(), "ReporteModal", "$('#ReporteModal').modal();", true);
         }
 
-        protected void ClienteGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            ClienteGridView.DataSource = repositorio.GetList(filter);
-            ClienteGridView.PageIndex = e.NewPageIndex;
-            ClienteGridView.DataBind();
-        }
+        
     }
 }

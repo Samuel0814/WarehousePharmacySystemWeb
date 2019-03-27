@@ -19,14 +19,18 @@ namespace WarehousePharmacySystemWeb.Consultas
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            TextBoxFechaInicial.Text = DateTime.Now.Date.ToString("yyyy-MM-dd");
-            TextBoxFechaFinal.Text = DateTime.Now.Date.ToString("yyyy-MM-dd");
+            if(!IsPostBack)
+            {
+                TextBoxFechaInicial.Text = DateTime.Now.Date.ToString("yyyy-MM-dd");
+                TextBoxFechaFinal.Text = DateTime.Now.Date.ToString("yyyy-MM-dd");
 
-            ArticulosReportViewer.ProcessingMode = Microsoft.Reporting.WebForms.ProcessingMode.Local;
-            ArticulosReportViewer.Reset();
-           
-            ArticulosReportViewer.LocalReport.ReportPath = Server.MapPath(@"~\Reportes\ListadoArticulos.rdlc");
-            ArticulosReportViewer.LocalReport.DataSources.Clear();
+                ArticulosReportViewer.ProcessingMode = Microsoft.Reporting.WebForms.ProcessingMode.Local;
+                ArticulosReportViewer.Reset();
+
+                ArticulosReportViewer.LocalReport.ReportPath = Server.MapPath(@"~\Reportes\ListadoArticulos.rdlc");
+                ArticulosReportViewer.LocalReport.DataSources.Clear();
+            }
+            
         }
 
         protected void ArticuloGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -87,7 +91,7 @@ namespace WarehousePharmacySystemWeb.Consultas
         {
             Filtrar();
             ArticulosReportViewer.LocalReport.DataSources.Clear();
-            ArticulosReportViewer.LocalReport.DataSources.Add(new ReportDataSource("DataSetListadoArticulos", repositorio.GetList(filtro)));
+            ArticulosReportViewer.LocalReport.DataSources.Add(new ReportDataSource("Articulos", repositorio.GetList(filtro)));
             ArticulosReportViewer.LocalReport.Refresh();
             ScriptManager.RegisterStartupScript(this, this.GetType(), "ReporteModal", "$('#ReporteModal').modal();", true);
         }
