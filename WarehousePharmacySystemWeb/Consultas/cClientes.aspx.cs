@@ -28,9 +28,7 @@ namespace WarehousePharmacySystemWeb.Consultas
 
         protected void ClientesReportViewer_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            ClienteGridView.DataSource = repositorio.GetList(filter);
-            ClienteGridView.PageIndex = e.NewPageIndex;
-            ClienteGridView.DataBind();
+            
         }
 
         protected void BuscarLinkButton_Click(object sender, EventArgs e)
@@ -75,6 +73,13 @@ namespace WarehousePharmacySystemWeb.Consultas
             ClientesReportViewer.LocalReport.DataSources.Add(new ReportDataSource("DataSetListadoClientes", repositorio.GetList(filter)));
             ClientesReportViewer.LocalReport.Refresh();
             ScriptManager.RegisterStartupScript(this, this.GetType(), "ReporteModal", "$('#ReporteModal').modal();", true);
+        }
+
+        protected void ClienteGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            ClienteGridView.DataSource = repositorio.GetList(filter);
+            ClienteGridView.PageIndex = e.NewPageIndex;
+            ClienteGridView.DataBind();
         }
     }
 }

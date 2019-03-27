@@ -1,4 +1,5 @@
 ﻿using BLL;
+using DAL;
 using Entidades;
 using System;
 using System.Collections.Generic;
@@ -273,6 +274,22 @@ namespace WarehousePharmacySystemWeb.Registros
             TextBoxTelefonoCliente.Text = clientes.Telefono.ToString();
             TextBoxDireccionCliente.Text = clientes.Direccion.ToString();
 
+        }
+
+        protected void TextBoxCantidadArticulo_TextChanged(object sender, EventArgs e)
+        {
+            //Contexto db = new Contexto();
+            //var articulo = db.Articulos.Find(TextboxArticuloID.Text);
+
+            //if (Convert.ToInt32(TextBoxCantidadArticulo.ToString()) > Convert.ToInt32(articulo.Existencia.ToString()))
+            //{
+            //    ScriptManager.RegisterStartupScript(this, typeof(Page), "toastr_message", script: "toastr['success']('La cantidad no debe exceder el inventario ');", addScriptTags: true);
+            //    TextBoxCantidadArticulo.Text = "0";
+            //}
+            //else
+            //{
+            //    ScriptManager.RegisterStartupScript(this, typeof(Page), "toastr_message", script: "toastr['success']('Articulo agregado correctamente ');", addScriptTags: true);
+            //}
         }
     }
 }

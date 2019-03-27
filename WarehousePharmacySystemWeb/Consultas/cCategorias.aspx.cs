@@ -49,9 +49,8 @@ namespace WarehousePharmacySystemWeb.Consultas
                     filtro = (x => x.NombreCategoria.Contains(TextBoxBuscar.Text));
                     break;
             }
-
-            RepositorioBase<Categorias> rep = new RepositorioBase<Categorias>();
-            CategoriaGridView.DataSource = rep.GetList(filtro);
+            
+            CategoriaGridView.DataSource = repositorio.GetList(filtro);
             CategoriaGridView.DataBind();
         }
 

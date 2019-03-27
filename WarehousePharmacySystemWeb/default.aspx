@@ -5,12 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="Scripts/toastr.js"></script>
     <script src="Scripts/toastr.min.js"></script>
-    <link href="Scripts/Style.css" rel="stylesheet" />
+<%--    <link href="Scripts/Style.css" rel="stylesheet" />--%>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -32,14 +33,14 @@
 
                             <asp:Button class="btn btn-info" ID="ButtonSingIn" runat="server" Text="SING IN" OnClick="ButtonSingIn_Click" />
                         </div>
-                        <div class="col-md-6">
-                            <img src="images/bg.png" />
+                        <%--<div class="col-md-6">
+                            <img src="images/bg.png" />--%>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-2"></div>
             </div>
-        </div>
+        <%--</div>--%>
     </form>
 </body>
 </html>

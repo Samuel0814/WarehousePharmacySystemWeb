@@ -5,7 +5,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-   <div class="jumbotron">
+    <div class="jumbotron">
         <div class="page-header text-center">
             <h2 style="color: #358CCE">Registro de Facturas</h2>
         </div>
@@ -114,7 +114,7 @@
 
                 <div class="form-group col-md-3 col-md-offset-4">
                     <label for="TextBoxCantidadArticulo">Cantidad</label>
-                    <asp:TextBox class="form-control" TextMode="Number" ID="TextBoxCantidadArticulo" runat="server" autocomplete="off"> </asp:TextBox>
+                    <asp:TextBox class="form-control" TextMode="Number" ID="TextBoxCantidadArticulo" runat="server" autocomplete="off" OnTextChanged="TextBoxCantidadArticulo_TextChanged"> </asp:TextBox>
                 </div>
                 <div class="form-group col-md-3 col-md-offset-4">
                     <label for="TextBoxImporteArticulo">Importe</label>
