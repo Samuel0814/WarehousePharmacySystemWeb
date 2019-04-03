@@ -16,6 +16,22 @@ namespace WarehousePharmacySystemWeb.Registros
 
         }
 
+        protected void ButtonBuscar_Click(object sender, EventArgs e)
+        {
+            RepositorioBase<Categorias> rd = new RepositorioBase<Categorias>();
+            Categorias d = rd.Buscar(int.Parse(TextBoxCategoriasID.Text));
+
+            if (d != null)
+            {
+                TextBoxDescripcion.Text = d.NombreCategoria;
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "toastr_message", script: "toastr['success']('Categoria Encontrada');", addScriptTags: true);
+            }
+            else
+            {
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "toastr_message", script: "toastr['error']('Categoria no Encontrada');", addScriptTags: true);
+            }
+        }
+
         protected void ButtonNuevo_Click(object sender, EventArgs e)
         {
             ClearAll();
@@ -82,22 +98,6 @@ namespace WarehousePharmacySystemWeb.Registros
             else
             {
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "toastr_message", script: "toastr['error']('No se puede eliminar una categoria que no existe');", addScriptTags: true);
-            }
-        }
-
-        protected void ButtonBuscar_Click(object sender, EventArgs e)
-        {
-            RepositorioBase<Categorias> rd = new RepositorioBase<Categorias>();
-            Categorias d = rd.Buscar(int.Parse(TextBoxCategoriasID.Text));
-
-            if (d != null)
-            {
-                TextBoxDescripcion.Text = d.NombreCategoria;
-                ScriptManager.RegisterStartupScript(this, typeof(Page), "toastr_message", script: "toastr['success']('Categoria Encontrada');", addScriptTags: true);
-            }
-            else
-            {
-                ScriptManager.RegisterStartupScript(this, typeof(Page), "toastr_message", script: "toastr['error']('Categoria no Encontrada');", addScriptTags: true);
             }
         }
     }

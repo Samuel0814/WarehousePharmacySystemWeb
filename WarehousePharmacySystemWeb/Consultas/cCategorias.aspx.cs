@@ -26,6 +26,7 @@ namespace WarehousePharmacySystemWeb.Consultas
                 CategoriasReportViewer.Reset();
                 CategoriasReportViewer.LocalReport.ReportPath = Server.MapPath(@"~\Reportes\ListadoCategorias.rdlc");
 
+                Filtrar();
                 CategoriasReportViewer.LocalReport.DataSources.Clear();
 
                 CategoriasReportViewer.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", repositorio.GetList(x => true)));
@@ -36,6 +37,14 @@ namespace WarehousePharmacySystemWeb.Consultas
         }
 
         protected void BuscarLinkButton_Click(object sender, EventArgs e)
+        {
+
+            Filtrar();
+            CategoriaGridView.DataSource = repositorio.GetList(filtro);
+            CategoriaGridView.DataBind();
+        }
+
+        private void Filtrar()
         {
             int id = 0;
 
@@ -54,9 +63,6 @@ namespace WarehousePharmacySystemWeb.Consultas
                     filtro = (x => x.NombreCategoria.Contains(TextBoxBuscar.Text));
                     break;
             }
-            
-            CategoriaGridView.DataSource = repositorio.GetList(filtro);
-            CategoriaGridView.DataBind();
         }
 
         protected void CategoriaGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)

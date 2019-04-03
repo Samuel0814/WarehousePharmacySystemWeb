@@ -3,6 +3,8 @@ using Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -53,6 +55,7 @@ namespace WarehousePharmacySystemWeb.Registros
                 }
             }
         }
+
 
         private Clientes LlenaClase()
         {
@@ -119,6 +122,19 @@ namespace WarehousePharmacySystemWeb.Registros
             TextBoxTelefono.Text = cliente.Telefono;
             TextBoxDireccion.Text = cliente.Direccion;
             TextBoxEmail.Text = cliente.Email;
+        }
+
+        
+
+
+        protected void TextBoxDireccion_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        protected void TextBoxTelefono_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

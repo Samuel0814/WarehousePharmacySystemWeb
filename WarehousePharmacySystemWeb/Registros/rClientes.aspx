@@ -39,7 +39,7 @@
         <div class="row">
             <div class="form-group col-md-7 col-md-offset-3">
                 <label for="TextBoxTelefono">Telefono</label>
-                <asp:TextBox class="form-control" ID="TextBoxTelefono" runat="server" placeholder="Telefono del Cliente" autocomplete="off"> </asp:TextBox>
+                <asp:TextBox class="form-control" ID="TextBoxTelefono" runat="server" placeholder="Telefono del Cliente" autocomplete="off" OnTextChanged="TextBoxTelefono_TextChanged"> </asp:TextBox>
                 <asp:RequiredFieldValidator ValidationGroup="save" ForeColor="Red" ID="RequiredFieldValidator3" ControlToValidate="TextBoxTelefono" runat="server" Display="Dynamic" ErrorMessage="Introduzca el Telefono del Cliente"></asp:RequiredFieldValidator>
             </div>
         </div>
@@ -47,7 +47,7 @@
         <div class="row">
             <div class="form-group col-md-7 col-md-offset-3">
                 <label for="TextBoxDireccion">Direccion</label>
-                <asp:TextBox class="form-control" ID="TextBoxDireccion" runat="server" placeholder="Direccion del Cliente" autocomplete="off"> </asp:TextBox>
+                <asp:TextBox class="form-control" ID="TextBoxDireccion" runat="server" placeholder="Direccion del Cliente" autocomplete="off" OnTextChanged="TextBoxDireccion_TextChanged"> </asp:TextBox>
                 <asp:RequiredFieldValidator ValidationGroup="save" ForeColor="Red" ID="RequiredFieldValidator4" ControlToValidate="TextBoxDireccion" runat="server" Display="Dynamic" ErrorMessage="Introduzca la Direccion del Cliente"></asp:RequiredFieldValidator>
             </div>
         </div>

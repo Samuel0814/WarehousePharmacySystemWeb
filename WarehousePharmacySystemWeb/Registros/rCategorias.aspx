@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-        <div class="jumbotron">
+    <div class="jumbotron">
         <div class="page-header text-center">
             <h2 style="color: #358CCE">Registro de Categorias</h2>
         </div>
