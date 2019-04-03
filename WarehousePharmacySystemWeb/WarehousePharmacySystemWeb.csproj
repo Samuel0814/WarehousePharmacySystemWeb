@@ -170,6 +170,17 @@
     <Content Include="DataSetListadoFacturas.xss">
       <DependentUpon>DataSetListadoFacturas.xsd</DependentUpon>
     </Content>
+    <Content Include="DataSetReciboFacturas.xsc">
+      <DependentUpon>DataSetReciboFacturas.xsd</DependentUpon>
+    </Content>
+    <None Include="DataSetReciboFacturas.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetReciboFacturas.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="DataSetReciboFacturas.xss">
+      <DependentUpon>DataSetReciboFacturas.xsd</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\WarehousePharmacySystem - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\WarehousePharmacySystem - FTP1.pubxml" />
     <None Include="Properties\PublishProfiles\WarehousePharmacySystem - Web Deploy.pubxml" />
@@ -276,6 +287,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetListadoFacturas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetReciboFacturas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetReciboFacturas.xsd</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -389,7 +405,9 @@
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Reportes\ReciboFacturas.rdlc" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">
       <Project>{7BBD13EE-693D-4A33-9892-6075284690DF}</Project>
