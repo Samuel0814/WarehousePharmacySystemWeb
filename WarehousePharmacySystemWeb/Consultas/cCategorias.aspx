@@ -50,13 +50,15 @@
                 </div>
 
                 <!-- Large modal -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Reporte</button>
+                <div class="btn-block text-center">
+                    <asp:Button CssClass="btn btn-primary" ID="ButtonImprimir" runat="server" Text="Imprimir" OnClick="ButtonImprimir_Click"/>
+                </div>
 
-                <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal fade bd-example-modal-lg" id="ReporteModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Reporte de Categorias</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Imprimir</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -64,7 +66,9 @@
                             <div class="modal-body">
                                 <div id="div1">
                                     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-                                    <rsweb:reportviewer id="CategoriasReportViewer" width="100%" runat="server"></rsweb:reportviewer>
+                                    <rsweb:reportviewer id="CategoriasReportViewer" width="100%" runat="server">
+                                        <ServerReport ReportPath=""  ReportServerUrl=""/>
+                                    </rsweb:reportviewer>
                                 </div>
                             </div>
                             <div class="modal-footer">

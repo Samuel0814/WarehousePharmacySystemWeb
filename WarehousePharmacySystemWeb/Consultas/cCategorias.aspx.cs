@@ -24,24 +24,21 @@ namespace WarehousePharmacySystemWeb.Consultas
             {
                 CategoriasReportViewer.ProcessingMode = Microsoft.Reporting.WebForms.ProcessingMode.Local;
                 CategoriasReportViewer.Reset();
-                CategoriasReportViewer.LocalReport.ReportPath = Server.MapPath(@"~\Reportes\ListadoCategorias.rdlc");
 
-                Filtrar();
+                CategoriasReportViewer.LocalReport.ReportPath = Server.MapPath(@"~\Reportes\ListadoCategorias.rdlc");
                 CategoriasReportViewer.LocalReport.DataSources.Clear();
 
-                CategoriasReportViewer.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", repositorio.GetList(x => true)));
-                CategoriasReportViewer.LocalReport.Refresh();
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "ReporteModal", "$('#ReporteModal').modal();", true);
+
             }
             
         }
 
         protected void BuscarLinkButton_Click(object sender, EventArgs e)
         {
-
             Filtrar();
             CategoriaGridView.DataSource = repositorio.GetList(filtro);
             CategoriaGridView.DataBind();
+
         }
 
         private void Filtrar()
@@ -67,11 +64,21 @@ namespace WarehousePharmacySystemWeb.Consultas
 
         protected void CategoriaGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            RepositorioBase<Categorias> rb = new RepositorioBase<Categorias>();
-            CategoriaGridView.DataSource = rb.GetList(filtro);
+            
+            CategoriaGridView.DataSource = repositorio.GetList(filtro);
             CategoriaGridView.PageIndex = e.NewPageIndex;
             CategoriaGridView.DataBind();
         }
 
+        protected void ButtonImprimir_Click(object sender, EventArgs e)
+        {
+            Filtrar();
+            CategoriasReportViewer.LocalReport.DataSources.Clear();
+
+            CategoriasReportViewer.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", repositorio.GetList(filtro)));
+
+            CategoriasReportViewer.LocalReport.Refresh();
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "ReporteModal", "$('#ReporteModal').modal();", true);
+        }
     }
 }
