@@ -58,11 +58,12 @@ namespace WarehousePharmacySystemWeb.Consultas
             {
                 case 0://Todo
                     filtro = x => true;
+                    
                     break;
 
                 case 1://ArticulosID
                     id = int.Parse(TextBoxBuscar.Text);
-                    filtro = (x => x.IdArticulos == id);
+                    filtro = (x => x.IdArticulos == id && ((x.FechaDeVencimiento >= fInicial) && (x.FechaDeVencimiento <= fFinal)));
                     break;
 
                 case 2://Nombre Articulo
