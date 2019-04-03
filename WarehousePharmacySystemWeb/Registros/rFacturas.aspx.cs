@@ -1,9 +1,11 @@
 ﻿using BLL;
 using DAL;
 using Entidades;
+using Microsoft.Reporting.WebForms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -30,6 +32,11 @@ namespace WarehousePharmacySystemWeb.Registros
                 active = (bool)ViewState["Active"];
             }
 
+            FacturaReportViewer.ProcessingMode = Microsoft.Reporting.WebForms.ProcessingMode.Local;
+            FacturaReportViewer.Reset();
+
+            FacturaReportViewer.LocalReport.ReportPath = Server.MapPath(@"~\Reportes\ReciboFacturas.rdlc");
+            FacturaReportViewer.LocalReport.DataSources.Clear();
 
             TextBoxFecha.Text = DateTime.Now.ToString("yyyy-MM-dd");
         }
@@ -289,6 +296,18 @@ namespace WarehousePharmacySystemWeb.Registros
             //{
             //    ScriptManager.RegisterStartupScript(this, typeof(Page), "toastr_message", script: "toastr['success']('Articulo agregado correctamente ');", addScriptTags: true);
             //}
+        }
+
+        protected void ButtonImprimir_Click(object sender, EventArgs e)
+        {
+            RepositorioFactura repositorio = new RepositorioFactura();
+
+            Expression<Func<Facturas, bool>> filtro = x => true;
+
+            FacturaReportViewer.LocalReport.DataSources.Clear();
+            FacturaReportViewer.LocalReport.DataSources.Add(new ReportDataSource("Recibos", repositorio.GetList(filtro)));
+            FacturaReportViewer.LocalReport.Refresh();
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "ReporteModal", "$('#ReporteModal').modal();", true);
         }
     }
 }
